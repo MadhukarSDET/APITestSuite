@@ -21,4 +21,22 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn test -Dsuite=TESTNG
+      run: 
+        echo "🚀 Starting Maven Test Execution..."
+        mvn test -Dsuite=TESTNG
+        echo "✅ Tests Completed. Collecting logs and reports..."
+    - name: Upload Log4j2 Logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: log4j2-logs
+          path: target/logs/
+
+    - name: Upload TestNG Reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: testng-reports
+          path: |
+            target/surefire-reports/emailable-report.html
+            target/surefire-reports/index.html
