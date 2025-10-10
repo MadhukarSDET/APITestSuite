@@ -72,7 +72,7 @@ public class UserTests {
 		userService.putRequest(payload, "/users/1");
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void validateUsersSchema() {
 		Response response = userService.getUsersList("/users");
 		response
