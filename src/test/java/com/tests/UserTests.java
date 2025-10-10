@@ -14,7 +14,7 @@ public class UserTests {
 	UserService userService= new UserService();
 
 	@Test
-	public void test1() {
+	public void getUserInfoTest() {
 		Response response = userService.getSingleUser("/users/1");
 		UserResponse responsePOJO = response.as(UserResponse.class);
 		System.out.println(response.prettyPrint());
@@ -23,7 +23,7 @@ public class UserTests {
 	}
 
 	@Test
-	public void test() {
+	public void getUsersListTest() {
 		Response response = userService.getUsersList("/users");
 		System.out.println(response.asPrettyString());
 	}
