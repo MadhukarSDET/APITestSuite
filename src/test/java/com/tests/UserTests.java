@@ -18,8 +18,8 @@ public class UserTests {
 		Response response = userService.getSingleUser("/users/1");
 		UserResponse responsePOJO = response.as(UserResponse.class);
 		System.out.println(response.prettyPrint());
-		//System.out.println(responsePOJO.getMeta().getUpgrade_url());
-		//System.out.println(responsePOJO.getSupport().getText());
+		System.out.println(responsePOJO.getMeta().getUpgrade_url());
+		System.out.println(responsePOJO.getSupport().getText());
 	}
 
 	@Test
