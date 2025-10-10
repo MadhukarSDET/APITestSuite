@@ -56,7 +56,7 @@ public class UserTests {
 		Assert.assertNotNull(id2, "ID KEY NOT EXISTS");
 		
 		Object idType = response.jsonPath().get("data[0].id");
-		Assert.assertTrue(idType instanceof Double, "ID is not declared as integer:");
+		Assert.assertTrue(idType instanceof Integer, "ID is not declared as integer:");
 
 	}
 
