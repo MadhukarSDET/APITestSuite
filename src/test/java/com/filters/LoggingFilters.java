@@ -34,12 +34,12 @@ public class LoggingFilters implements Filter {
 		logger.info("HEADERS:" + requestSpec.getHeaders());
 		logger.info("Get HTTP CALL INFO:" + requestSpec.getHttpClient());
 		logger.info("GET CONTENT TYPE:" + requestSpec.getContentType());
-		logger.info("GET PORT:" + requestSpec.getPort());
+		logger.info("GET PORT:" + requestSpec.getMethod());
 	}
 
 	public void response(Response response) {
 		logger.info("GET STATUS CODE:" + response.getStatusCode());
-		logger.info("GET BODY:" + response.getBody());
+		logger.info("GET BODY:" + response.getTime());
 	}
 
 }

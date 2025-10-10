@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.models.responses.UserResponse;
 import com.services.UserService;
 
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 
 @Listeners(com.listeners.TestListener.class)
@@ -70,4 +71,13 @@ public class UserTests {
 
 		userService.putRequest(payload, "/users/1");
 	}
+	
+	@Test
+	public void validateUsersSchema() {
+		Response response = userService.getUsersList("/users");
+		response
+        .then()
+        .assertThat()
+        .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("userListSchema.json"));
+}
 }
