@@ -2,6 +2,7 @@
 name: Java CI with Maven
 
 on:
+  workflow-dispath:
   push:
     branches: [ "main" ]
   pull_request:
