@@ -1,5 +1,7 @@
 package com.tests;
 
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -30,6 +32,10 @@ public class UserTests {
 	@Test
 	public void getUserInfoTest() {
 		Response response = userService.getSingleUser("/users/1");
+		
+		Map<Object, Object> map = response.jsonPath().getMap("support");
+		map.entrySet().stream().forEach(entry -> System.out.println("Key:"+ entry.getKey() +" "+ "value:"+ entry.getValue()));
+		
 		UserResponse responsePOJO = response.as(UserResponse.class);
 		System.out.println(response.prettyPrint());
 		System.out.println(responsePOJO.getMeta().getUpgrade_url());
