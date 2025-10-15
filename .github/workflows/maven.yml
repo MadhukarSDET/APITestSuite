@@ -2,7 +2,6 @@
 name: Java CI with Maven
 
 on:
-  workflow-dispath:
   push:
     branches: [ "main" ]
   pull_request:
@@ -23,5 +22,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn test -Dsuite=TESTNG
-        
+    
     
